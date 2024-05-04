@@ -1,0 +1,60 @@
+/* This module is for Main.tsx */
+
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container h1, h2, h3 {
+  font-family: var(--font-family-title);
+  display: inline-block;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.container h1 {
+  color: var(--text-h1-color);
+  font-size: var(--font-size-h1);
+}
+
+.container h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+}
+
+.errorText {
+  color: var(--text-color-error);
+}
+
+.formField {
+  font-family: var(--font-family-title);
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--space-3);
+}
+
+.formField label {
+  font-weight: var(--font-weight-label);
+  padding-bottom: var(--space-2);
+}
+
+.formField input {
+  line-height: var(--line-height-input);
+  padding: var(--space-1) var(--space-2);
+}
+
+form input[type=submit] {
+  background-color: var(--button-color-primary);
+  border: none;
+  color: var(--text-color-inverted);
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-2);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: var(--font-size-cta);
+  font-weight: var(--font-weight-cta);
+  text-transform: uppercase;
+}

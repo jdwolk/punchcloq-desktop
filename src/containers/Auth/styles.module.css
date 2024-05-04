@@ -1,0 +1,38 @@
+@import '../../styles/vars.css';
+
+.logo {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 23px;
+  right: 25px;
+}
+
+h1 {
+  border-bottom: 3px solid var(--border-color-primary);
+  margin: 0 auto;
+  margin-left: -0px;
+  font-size: 70px !important;
+}
+
+
+.screen {
+  background-color: var(--bg-color-primary);
+  color: var(--text-color-primary);
+  width: 100vw;
+  height: 100vh;
+
+  margin: 0 auto;
+}
+
+.container {
+  padding: var(--space-4);
+  height: 73%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}

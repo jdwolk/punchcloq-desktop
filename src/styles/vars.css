@@ -1,0 +1,32 @@
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 32px;
+
+  --brick: #B56C70;
+  --charcoal: #222;
+  --dust: #E2E4E3;
+  --seafoam-light: #A5D7CC;
+  --seafoam-dark: #21362F;
+  --seafoam: #638C7E;
+
+  --bg-color-primary: var(--dust);
+  --border-color-primary: var(--brick);
+  --button-color-primary: var(--seafoam-dark);
+  --color-primary: var(--seafoam-light);
+  --text-color: var(--charcoal);
+  --text-color-error: red;
+  --text-color-inverted: var(--dust);
+  --text-h1-color: var(--seafoam);
+
+  --font-family-title: bebasNeueRegular;
+  --font-size-h1: 3em;
+  --font-size-h2: 2.2em;
+  --font-size-cta: 1em;
+  --font-weight-h2: 300;
+  --font-weight-cta: 500;
+  --font-weight-label: 600;
+
+  --line-height-input: var(--space-4);
+}

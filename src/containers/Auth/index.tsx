@@ -1,7 +1,8 @@
-import { useForm } from "react-hook-form"
+import { useForm } from 'react-hook-form';
 
 import TextField from '../../components/TextField';
-import * as Handlers from './handlers';
+import * as Actions from './actions';
+import { handle } from '../../util/result';
 
 import PunchClockImage from'../../images/punchclock-temp.png';
 import styles from './styles.module.css';
@@ -18,7 +19,13 @@ function Auth() {
     formState: { errors },
   } = useForm<IFormValues>()
 
-  const onSubmit = handleSubmit((data) => Handlers.authenticate(data));
+  const onSubmit = handleSubmit(async (data) => {
+    const result = await Actions.authenticate(data)
+    handle(result,
+      (jwt) => console.log('### Success: ', jwt),
+      (failure) => console.log('### Failure: ', failure),
+    );
+  });
 
   return (
     <div className={styles.screen}>

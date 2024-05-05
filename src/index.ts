@@ -44,12 +44,19 @@ const createWindow = (): void => {
     createChildWindow(mainWindow, pageUrl);
   });
 
-  ipcMain.on('http-request', async (event, url, requestData) => {
+  ipcMain.on('api-request', async (event, url, requestData) => {
     try {
-      const responseData = await net.fetch(url, requestData);
-      event.sender.send('http-response', JSON.stringify(responseData));
+      const response = await net.fetch(url, requestData);
+
+      if (!response.ok) {
+        // TODO: better error reporting
+        event.sender.send('api-error', response.statusText);
+      }
+      const { status, headers } = response;
+      const json = await response.json();
+      event.sender.send('api-response', { json, status, headers: Object.fromEntries(headers.entries()) });
     } catch (error) {
-      event.sender.send('http-error', error);
+      event.sender.send('api-error', error);
     }
   });
 }

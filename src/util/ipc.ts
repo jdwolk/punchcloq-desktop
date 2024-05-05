@@ -1,14 +1,25 @@
+import { Net } from 'electron';
 const { ipcRenderer } = window.require('electron');
 
+type DefaultHeader = Record<string, string>;
+
+interface IResponseWrapper<JSONType, HeaderType = DefaultHeader> {
+  status: Response['status'],
+  json: JSONType,
+  headers: HeaderType,
+}
+
 // TODO: use types from the fetch API?
-export function fetch<DataType, ResponseType>(url: string, data?: DataType): Promise<ResponseType> {
+export function fetch<JSONType, HeaderType = DefaultHeader>(
+  url: string,
+  data?: RequestInit
+): Promise<IResponseWrapper<JSONType>> {
   return new Promise((resolve, reject) => {
-    ipcRenderer.send('http-request', url, data);
-    ipcRenderer.once('http-response', (_event, responseData) => {
-      console.log('### ResonseData: ', JSON.stringify(responseData));
+    ipcRenderer.send('api-request', url, data);
+    ipcRenderer.once('api-response', (_event, responseData) => {
       resolve(responseData);
     });
-    ipcRenderer.once('http-error', (_event, error) => {
+    ipcRenderer.once('api-error', (_event, error) => {
       reject(error);
     });
   });

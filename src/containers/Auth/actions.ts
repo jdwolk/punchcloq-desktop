@@ -34,3 +34,20 @@ export async function authenticate({ email, password }: { email: string, passwor
     return Result.failure('Failed to authenticate');
   }
 };
+
+export async function example() {
+  try {
+    const result = await fetch(api.example(), {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`, // TODO: extract headers?
+      },
+    });
+
+    return Result.success(result);
+  } catch (err) {
+    console.log(err);
+    return Result.failure('Failed to fetch');
+  }
+}

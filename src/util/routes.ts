@@ -6,4 +6,5 @@ function serverUrl(route: string) {
 
 export const restEndpoints = {
   signIn: () => serverUrl('/users/sign_in'),
+  example: () => serverUrl('/api/example'),
 }

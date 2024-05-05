@@ -22,8 +22,14 @@ function Auth() {
   const onSubmit = handleSubmit(async (data) => {
     const result = await Actions.authenticate(data)
     handle(result,
-      (jwt) => console.log('### Success: ', jwt),
-      (failure) => console.log('### Failure: ', failure),
+      async (jwt) => {
+        const result = await Actions.example();
+        handle(result,
+          ({ json }) => console.log('### Result: ', json),
+          (failure) => console.log('### Failure: ', failure)
+        )
+      },
+      async (failure) => console.log('### Failure: ', failure),
     );
   });
 

@@ -51,3 +51,7 @@ export async function example() {
     return Result.failure('Failed to fetch');
   }
 }
+
+export async function redirectToTracker() {
+  //...
+}

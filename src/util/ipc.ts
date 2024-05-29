@@ -1,4 +1,3 @@
-import { Net } from 'electron';
 const { ipcRenderer } = window.require('electron');
 
 type DefaultHeader = Record<string, string>;
@@ -9,7 +8,6 @@ interface IResponseWrapper<JSONType, HeaderType = DefaultHeader> {
   headers: HeaderType,
 }
 
-// TODO: use types from the fetch API?
 export function fetch<JSONType, HeaderType = DefaultHeader>(
   url: string,
   data?: RequestInit
